@@ -130,11 +130,20 @@ print(printStringRecursion("Hello World!", 5))
 //print(printSquareRecursion("Hello World! ", 5))
 
 //task 16
-def patternMatching(a:Int, b:Int, toSum:Boolean): Int = toSum match{
-  case true => a + b
-  case false => a * b
+def patternMatching(a:Int, b:Int, toSum:Boolean): Int = a match{
+  case 0 => b
+  case _ => b match{
+    case 0 => a
+    case _ => toSum match{
+      case true => a + b
+      case false => a *b
+    }
+  }
+  //  case true => a + b
+  //  case false => a * b
 }
 println(patternMatching(15,13,true))
+
 
 //task 17
 def patternMatching2(any: Any): Any = any match{
