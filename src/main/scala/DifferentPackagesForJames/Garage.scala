@@ -12,33 +12,29 @@ class Garage {
   }
 
   //  { { { { C U R L Y B O Y S } } } }
-  def removeVehicle[T](remove:T): Unit = {
+  def removeVehicle(remove:String): Unit = {
     remove match{
-      case remove: Int =>
-        vehicles = vehicles.filter(v => v.getid!=remove)
       case "Car" =>
         vehicles = vehicles.filter(v => !v.isInstanceOf[Car])
       case "Bike" =>
         vehicles = vehicles.filter(v => !v.isInstanceOf[Bike])
+      case _ =>
+        vehicles = vehicles.filter(v => v.getid!=remove)
     }
   }
 
+  def getVehicle(id:String): Option[Vehicle] = {
+    vehicles.find(v => v.getid == id)
+  }
+
   //  { { { { C U R L Y B O Y S } } } }
-  def fixVehicle(id: Int): Unit = {
-
-//    vehicles.map(vehicle => {
-//      if (vehicle.getid==id) {
-//        vehicle.fixed = true
-//        vehicle
-//      }
-//    })
-
-    for(i<-0 until vehicles.length){
-      if(vehicles(i).getid==id){
-        vehicles(i).setFixed(true)
-      }
+  def fixVehicle(id: String, isFixed:Boolean):Boolean = {
+    try {
+      getVehicle(id).get.setFixed(isFixed)
+      true
+    }catch{
+      case ex: NoSuchElementException => false
     }
-
   }
 
   //  { { { { C U R L Y B O Y S } } } }
@@ -46,11 +42,26 @@ class Garage {
     employees += new Employee(givenName, givenid, givenRole)
   }
 
+
   //  { { { { C U R L Y B O Y S } } } }
   override def toString: String = {
     var str = ""
     vehicles.toArray.map(a => str += a + "\n")
     str
   }
+
+
+
+
+
+
+
+  //  { { { { C U R L Y B O Y S } } } }
+//  def calcCost(id:String): Int = {
+//    var cost = 0
+//    getVehicle(id).get.
+//    10
+//  }
+
 
 }
