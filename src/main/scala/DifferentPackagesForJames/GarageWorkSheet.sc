@@ -1,4 +1,5 @@
 val garage = new Garage
+
 garage.addVehicle(new Car("c1", "blue", 4, false))
 garage.addVehicle(new Car("c2", "red", 4, false))
 garage.addVehicle(new Car("c3", "yellow", 4, false))
@@ -19,4 +20,4 @@ garage.removeVehicle("b3")
 garage
 garage.fixVehicle("c1", true)
 garage.fixVehicle("b6", true)
-garage
+//garage.getVehicle("b6").get.getParts

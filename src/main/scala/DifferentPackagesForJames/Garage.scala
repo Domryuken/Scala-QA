@@ -1,17 +1,18 @@
 import scala.collection.mutable.ArrayBuffer
+import DifferentPackagesForJames.Part
 
 class Garage {
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   private var vehicles = new ArrayBuffer[Vehicle]()
   private var employees = new ArrayBuffer[Employee]()
   private var customer = new ArrayBuffer[Customer]()
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def addVehicle(vehicle: Vehicle): Unit = {
     vehicles += vehicle
   }
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def removeVehicle(remove:String): Unit = {
     remove match{
       case "Car" =>
@@ -27,41 +28,42 @@ class Garage {
     vehicles.find(v => v.getid == id)
   }
 
-  //  { { { { C U R L Y B O Y S } } } }
-  def fixVehicle(id: String, isFixed:Boolean):Boolean = {
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  def fixVehiclePart(id: String, part:String,isFixed:Boolean):Boolean = {
     try {
-      getVehicle(id).get.setFixed(isFixed)
+      getVehicle(id).get.setFixedPart(part,isFixed)
       true
     }catch{
       case ex: NoSuchElementException => false
     }
   }
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def addEmployee(givenName: String, givenid: Int, givenRole: String): Unit = {
     employees += new Employee(givenName, givenid, givenRole)
   }
 
-
-  //  { { { { C U R L Y B O Y S } } } }
+  def addPartToVehicle(id:String, name:String, isFixed:Boolean): Boolean ={
+    try{
+      getVehicle(id).get.addPart(Part.create(name,isFixed))
+      true
+    }catch{
+      case e: IllegalArgumentException => false
+    }
+  }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   override def toString: String = {
     var str = ""
     vehicles.toArray.map(a => str += a + "\n")
     str
   }
 
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  def calcCost(id:String): Double = {
+    getVehicle(id).get.getParts.filter(p => !p.isFixed).map(p => p.cost).sum
+  }
 
 
-
-
-
-
-  //  { { { { C U R L Y B O Y S } } } }
-//  def calcCost(id:String): Int = {
-//    var cost = 0
-//    getVehicle(id).get.
-//    10
-//  }
 
 
 }

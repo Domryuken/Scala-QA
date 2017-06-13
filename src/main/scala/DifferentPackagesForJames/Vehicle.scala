@@ -1,19 +1,43 @@
+import DifferentPackagesForJames.Part
+import scala.collection.mutable.ArrayBuffer
+
 /**
   * Created by Administrator on 06/06/2017.
   */
-abstract class Vehicle(protected val id: String, protected val colour: String, protected var fixed: Boolean) {
+//  { { { { JAMES STOP STEALING MY FILES } } } }
+abstract class Vehicle(protected val id: String, protected val colour: String) {
 
-  //  { { { { C U R L Y B O Y S } } } }
+  var parts = Part.createSet()
+
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def getid:String = id
   def getColour:String = colour
-  def getFixed:Boolean = fixed
+//  def getFixed:Boolean = fixed
 
-  //  { { { { C U R L Y B O Y S } } } }
-  def setFixed(state: Boolean): Unit ={
-    fixed = state
+  def getParts:ArrayBuffer[Part] = parts
+
+  def isFixed:Boolean = {
+    !parts.exists(p => !p.isFixed)
   }
 
-  override def toString: String =  s"ID: $id Fixed: $fixed Colour: $colour "
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  def setFixedPart(part:String,state: Boolean): Unit ={
+    parts.find(p => p.name==part).get.setFixed(state)
+  }
+
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  def setFixedVehicle(state:Boolean): Unit ={
+    parts.foreach(p => p.setFixed(state))
+  }
+
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  def addPart(part:Part): Unit ={
+    parts += part
+  }
+
+
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  override def toString: String =  s"ID: $id Fixed: $isFixed Colour: $colour "
 
 }
 

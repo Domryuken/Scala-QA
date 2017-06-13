@@ -1,12 +1,12 @@
 /**
   * Created by Administrator on 06/06/2017.
   */
-class Car(id: String, colour: String, private val wheels: Int, givenFixed: Boolean = false) extends Vehicle(id, colour, givenFixed) {
+class Car(id: String, colour: String, private val wheels: Int) extends Vehicle(id, colour) {
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def getWheels = wheels
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   override def toString: String = "Type: Car " + super.toString + s"Wheels: $wheels"
 
 }

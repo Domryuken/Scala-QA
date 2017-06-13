@@ -1,12 +1,13 @@
 /**
   * Created by Administrator on 06/06/2017.
   */
-class Bike(id: String, colour: String, private val sidecar: Boolean, givenFixed: Boolean = false) extends Vehicle(id, colour, givenFixed) {
+//  { { { { JAMES STOP STEALING MY FILES } } } }
+class Bike(id: String, colour: String, private val sidecar: Boolean) extends Vehicle(id, colour) {
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   def getSidecar = sidecar
 
-  //  { { { { C U R L Y B O Y S } } } }
+  //  { { { { JAMES STOP STEALING MY FILES } } } }
   override def toString: String = "Type: Bike " + super.toString + s"Sidecar: $sidecar"
 
 }
