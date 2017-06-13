@@ -2,17 +2,17 @@ package DifferentPackagesForJames
 
 import scala.collection.mutable.ArrayBuffer
 
-//  { { { { JAMES STOP STEALING MY FILES } } } }
+//  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
 case class Part(name: String, cost:Double, var isFixed:Boolean){
   def setFixed(state:Boolean): Unit ={
     isFixed = state
   }
 }
 
-//  { { { { JAMES STOP STEALING MY FILES } } } }
+//  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
 object Part {
 
-  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   @throws(classOf[IllegalArgumentException])
   def create(name: String, isFixed:Boolean): Part = name match{
     case "part1" => Part("Part1",11.00,isFixed)
@@ -33,7 +33,7 @@ object Part {
     case _ => throw new IllegalArgumentException
   }
 
-  //  { { { { JAMES STOP STEALING MY FILES } } } }
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def createSet(): ArrayBuffer[Part] = {
     var parts = new ArrayBuffer[Part]
     parts += create("part1",math.random() > 0.25)
