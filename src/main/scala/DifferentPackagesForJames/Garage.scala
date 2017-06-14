@@ -24,17 +24,18 @@ class Garage {
     }
   }
 
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def getVehicle(id:String): Option[Vehicle] = {
     vehicles.find(v => v.getid == id)
   }
 
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def fixVehiclePart(id: String, part:String,isFixed:Boolean):Boolean = {
-    try {
-      getVehicle(id).get.setFixedPart(part,isFixed)
+    if(getVehicle(id).isEmpty) {
+      getVehicle(id).get.setFixedPart(part, isFixed)
       true
-    }catch{
-      case ex: NoSuchElementException => false
+    }else{
+      false
     }
   }
 
@@ -43,6 +44,7 @@ class Garage {
     employees += new Employee(givenName, givenid, givenRole)
   }
 
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def addPartToVehicle(id:String, name:String, isFixed:Boolean): Boolean ={
     try{
       getVehicle(id).get.addPart(Part.create(name,isFixed))
@@ -57,21 +59,27 @@ class Garage {
     getVehicle(id).get.getParts.filter(p => !p.isFixed).map(p => p.cost).sum
   }
 
-  def vehiclePartsBroken(id:String):Boolean = {
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
+  def vehicleBroken(id:String):Boolean = {
     try{
-      getVehicle(id).get.partsBroken
-      true
+      if(getVehicle(id).get.partsBroken==0){
+        false
+      }else{
+        true
+      }
+
     }catch{
       case e: NoSuchElementException => false
     }
   }
 
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def vehicleToString(id:String): String = vehicles.find(v => v.getid == id).get.toString
 
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   override def toString: String = {
     var str = ""
-    vehicles.toArray.map(a => str += a + "\n")
+    vehicles.toArray.map(a => str += a + "\n\n")
     str
   }
 

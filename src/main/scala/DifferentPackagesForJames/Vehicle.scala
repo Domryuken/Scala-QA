@@ -16,8 +16,10 @@ abstract class Vehicle(protected val id: String, protected val colour: String) {
 
 //  def getFixed:Boolean = fixed
 
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def getParts:ArrayBuffer[Part] = parts
 
+  //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def isFixed:Boolean = {
     !parts.exists(p => !p.isFixed)
   }

@@ -7,6 +7,9 @@ case class Part(name: String, cost:Double, var isFixed:Boolean){
   def setFixed(state:Boolean): Unit ={
     isFixed = state
   }
+  override def toString():String = {
+    s"$name\t|$cost\t|$isFixed\n"
+  }
 }
 
 //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }

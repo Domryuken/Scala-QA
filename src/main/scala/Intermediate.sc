@@ -4,7 +4,7 @@ def blackjack(a:Int,b:Int): Int = {
 }
 
 def uniqueSum(a: Int, b:Int, c:Int): Int = {
-  if(a==b==c)0
+  if(a==b&&a==c)0
   else if(a==b)c
   else if(a==c)b
   else if(b==c)a
