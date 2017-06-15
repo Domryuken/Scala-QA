@@ -7,7 +7,7 @@ import scala.collection.mutable.ArrayBuffer
 //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
 abstract class Vehicle(protected val id: String, protected val colour: String) {
 
-  var parts = Part.createSet()
+  protected var parts = Part.createSet()
 
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def getid:String = id
@@ -42,7 +42,7 @@ abstract class Vehicle(protected val id: String, protected val colour: String) {
 
 
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
-  override def toString: String =  s"ID: $id Fixed: $isFixed Colour: $colour "
+  override def toString: String =  s"|ID: $id |Fixed: $isFixed |Colour: $colour |"
 
 }
 

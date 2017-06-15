@@ -6,14 +6,19 @@ class Garage {
   private var vehicles = new ArrayBuffer[Vehicle]()
   private var employees = new ArrayBuffer[Employee]()
   private var customer = new ArrayBuffer[Customer]()
+  private var isOpen = false
 
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
   def addVehicle(vehicle: Vehicle): Unit = {
     vehicles += vehicle
   }
 
+  def setIsOpen(state: Boolean): Unit ={
+    isOpen = state
+  }
+
   //  { { { { JAMES STOP STEALING MY FILES AND LEARN TO SCALA } } } }
-  def removeVehicle(remove:String): Unit = {
+  def removeVehicle(remove:String): Unit = if(isOpen){
     remove match{
       case "Car" =>
         vehicles = vehicles.filter(v => !v.isInstanceOf[Car])
