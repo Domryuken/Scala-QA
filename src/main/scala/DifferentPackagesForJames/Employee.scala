@@ -1,7 +1,7 @@
 /**
   * Created by Administrator on 06/06/2017.
   */
-class Employee(name: String, id: Int, var role: String) extends Person(name, id) {
+class Employee(name: String, var role: String) extends Person(name, Person.nextEmpId()) {
 
   //  { { { { C U R L Y B O Y S } } } }
   def getRole = role
@@ -17,4 +17,5 @@ class Employee(name: String, id: Int, var role: String) extends Person(name, id)
     str += id + name + role
     str
   }
+
 }

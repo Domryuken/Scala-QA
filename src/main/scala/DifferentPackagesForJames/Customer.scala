@@ -1,7 +1,7 @@
 /**
   * Created by Administrator on 06/06/2017.
   */
-class Customer(name: String, id: Int, var address: String) extends Person(name, id) {
+class Customer(name: String, var address: String) extends Person(name, Person.nextCustId()) {
 
   //  { { { { C U R L Y B O Y S } } } }
   def getAddress = address
@@ -18,3 +18,4 @@ class Customer(name: String, id: Int, var address: String) extends Person(name, 
     str
   }
 }
+

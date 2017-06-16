@@ -8,3 +8,16 @@ abstract class Person(val name: String, val id: Int) {
   def getid = id
 
 }
+
+object Person{
+  var custId= 0;
+  var empId = 0
+  def nextCustId(): Int = {
+    custId += 1
+    custId
+  }
+  def nextEmpId(): Int = {
+    empId += 1
+    empId
+  }
+}
